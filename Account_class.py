@@ -9,6 +9,9 @@ class account:
         self.history = [(self.balance, "Création du compte courant ")]
 # Méthode pour déposer de l'argent
     def deposit(self, amount):
+        if amount <= 0:
+            print("Erreur : le montant du dépôt doit être positif.")
+            return
         self.balance += amount
         self.history.append((self.balance, f"Dépôt de {amount} €"))
 
