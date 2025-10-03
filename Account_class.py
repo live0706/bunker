@@ -11,3 +11,11 @@ class account:
     def deposit(self, amount):
         self.balance += amount
         self.history.append((self.balance, f"Dépôt de {amount} €"))
+
+# Méthode pour retirer de l'argent  
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            self.history.append((self.balance, f"Retrait de {amount} €"))
+        else:
+            print("Fonds insuffisants")
