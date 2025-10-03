@@ -80,3 +80,30 @@ def open_dashboard(account: account):
         account.history_tk.append((datetime.now(), account.balance))
 
     tk.Button(dashboard, text="Retirer", command=do_withdraw, bg="blue", fg="white").pack(pady=5)
+
+     # Plus d'infos -> Graphique
+    def show_graph():
+        graph_window = tk.Toplevel(dashboard)
+        graph_window.title("Évolution du solde")
+        graph_window.geometry("700x500")
+        graph_window.configure(bg="black")
+
+        tk.Label(graph_window, text=f"Compte de {account.holder_name}",
+                 font=("Segoe UI", 14, "bold"), fg="blue", bg="black").pack(pady=10)
+
+        dates = [entry[0].strftime("%H:%M:%S") for entry in account.history_tk]
+        balances = [entry[1] for entry in account.history_tk]
+
+        fig, ax = plt.subplots(figsize=(6, 4))
+        ax.plot(dates, balances, marker="o", color="blue", linewidth=2)
+        ax.set_title("Évolution du solde", fontsize=14, fontweight="bold")
+        ax.set_xlabel("Heure de l'opération")
+        ax.set_ylabel("Solde (€)")
+        plt.xticks(rotation=45)
+
+        canvas = FigureCanvasTkAgg(fig, master=graph_window)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill="both", expand=True)
+
+    tk.Button(dashboard, text=" Plus d'infos", command=show_graph, bg="blue", fg="white").pack(pady=15)
+
