@@ -19,3 +19,6 @@ class account:
             self.history.append((self.balance, f"Retrait de {amount} €"))
         else:
             print("Fonds insuffisants")
+# Méthode pour afficher l'historique des transactions
+    def dump(self):
+        return f"{self.holder_name}, {self.account_number}, {self.balance}"
