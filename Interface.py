@@ -107,3 +107,20 @@ def open_dashboard(account: account):
 
     tk.Button(dashboard, text=" Plus d'infos", command=show_graph, bg="blue", fg="white").pack(pady=15)
 
+    # Interface Login
+frame_login = tk.Frame(root, bg="white")
+frame_login.pack(expand=True)
+
+tk.Label(frame_login, text=" Connexion", font=("Segoe UI", 16, "bold"), fg="black", bg="white").pack(pady=10)
+
+tk.Label(frame_login, text="Nom :", fg="black", bg="white").pack()
+tk.Entry(frame_login, textvariable=username_var).pack()
+
+tk.Label(frame_login, text="ID du compte :", fg="black", bg="white").pack()
+tk.Entry(frame_login, textvariable=account_id_var).pack()
+
+tk.Button(frame_login, text="Se connecter", command=login, bg="blue", fg="white").pack(pady=20)
+
+root.mainloop()
+
+
