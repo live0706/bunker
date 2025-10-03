@@ -7,3 +7,7 @@ class account:
         self.account_number = account_number if account_number else random.randint(1000000000, 9999999999)
         self.balance = balance
         self.history = [(self.balance, "Création du compte courant ")]
+# Méthode pour déposer de l'argent
+    def deposit(self, amount):
+        self.balance += amount
+        self.history.append((self.balance, f"Dépôt de {amount} €"))
