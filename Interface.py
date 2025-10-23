@@ -1,14 +1,3 @@
-"""
-Application de tableau de bord bancaire simple
-Utilise Tkinter pour l'interface graphique et Matplotlib pour les graphiques.
-
-MODIFICATIONS :
-- Augmentation de la taille de toutes les polices (labels, champs, boutons)
-  pour une meilleure lisibilité (Accessibilité).
-- Ajout de boutons "Retour" sur les fenêtres "Tableau de bord" et 
-  "Graphique" pour améliorer la navigation.
-"""
-
 # --- Importations ---
 import tkinter as tk
 from tkinter import messagebox
